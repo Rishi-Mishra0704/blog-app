@@ -56,7 +56,7 @@ RSpec.describe Post, type: :model do
         expect(post.author.reload.posts_counter).to eql 2
       end
     end
-    describe 'recent_five_comments' do
+    describe '#recent_five_comments' do
       let(:user) do
         User.create(name: 'Rishi', photo: 'Image will be displayed here', bio: 'Hello guys', posts_counter: 0)
       end
@@ -64,21 +64,22 @@ RSpec.describe Post, type: :model do
         Post.create(title: 'First Post', text: 'This is my first post', author_id: user.id, comments_counter: 0,
                     likes_counter: 0)
       end
+
       it 'returns the five most recent comments' do
-        # Create a post
-        post = Post.create(title: 'First Post', text: 'This is my first post', author_id: user.id, comments_counter: 0,
-                           likes_counter: 0)
+        comments = []
+        7.times { |i| comments << Comment.create(user:, post:, text: "Comment #{i}") }
 
-        # Create some sample comments with different created_at timestamps and associate them with the post
-        comment1 = Comment.create(created_at: 1.day.ago, post:)
-        comment2 = Comment.create(created_at: 2.days.ago, post:)
-        comment3 = Comment.create(created_at: 3.days.ago, post:)
-        comment4 = Comment.create(created_at: 4.days.ago, post:)
-        comment5 = Comment.create(created_at: 5.days.ago, post:)
-        Comment.create(created_at: 6.days.ago, post:)
+        recent_comments = post.recent_five_comments
 
-        # Ensure the method returns the five most recent comments
-        expect(post.recent_five_comments).to eq([comment5, comment4, comment3, comment2, comment1])
+        expect(recent_comments.length).to eq(5)
+        expect(recent_comments).to include(comments[6], comments[5], comments[4], comments[3], comments[2])
+        expect(recent_comments).not_to include(comments[1], comments[0])
+      end
+
+      it 'returns an empty array if there are no comments' do
+        recent_comments = post.recent_five_comments
+
+        expect(recent_comments).to be_empty
       end
     end
   end
