@@ -10,7 +10,7 @@ RSpec.describe Like, type: :model do
                   likes_counter: 0)
     end
 
-    subject { described_class.new(post:, user:) }
+    subject { described_class.new(user:, post:) }
 
     it 'must contain user id' do
       subject.user_id = nil
@@ -24,10 +24,8 @@ RSpec.describe Like, type: :model do
 
     it 'increments the likes counter of the associated post' do
       expect do
-        ActiveRecord::Base.transaction do
-          subject.save
-          post.reload
-        end
+        subject.save
+        post.reload
       end.to change { post.likes_counter }.by(1)
     end
   end
