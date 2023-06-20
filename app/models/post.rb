@@ -1,8 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :likes
-  has_many :comments
-
+  has_many :comments, dependent: :destroy
   after_save :update_posts_count
 
   validates :title, presence: true, length: { maximum: 250 }
@@ -12,8 +11,6 @@ class Post < ApplicationRecord
   def recent_five_comments
     comments.order(created_at: :desc).limit(5)
   end
-
-  private
 
   def update_posts_count
     author.increment!(:posts_counter)
