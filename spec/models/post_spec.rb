@@ -56,5 +56,30 @@ RSpec.describe Post, type: :model do
         expect(post.author.reload.posts_counter).to eql 2
       end
     end
+    describe 'recent_five_comments' do
+      let(:user) do
+        User.create(name: 'Rishi', photo: 'Image will be displayed here', bio: 'Hello guys', posts_counter: 0)
+      end
+      let(:post) do
+        Post.create(title: 'First Post', text: 'This is my first post', author_id: user.id, comments_counter: 0,
+                    likes_counter: 0)
+      end
+      it 'returns the five most recent comments' do
+        # Create a post
+        post = Post.create(title: 'First Post', text: 'This is my first post', author_id: user.id, comments_counter: 0,
+                           likes_counter: 0)
+
+        # Create some sample comments with different created_at timestamps and associate them with the post
+        comment1 = Comment.create(created_at: 1.day.ago, post:)
+        comment2 = Comment.create(created_at: 2.days.ago, post:)
+        comment3 = Comment.create(created_at: 3.days.ago, post:)
+        comment4 = Comment.create(created_at: 4.days.ago, post:)
+        comment5 = Comment.create(created_at: 5.days.ago, post:)
+        Comment.create(created_at: 6.days.ago, post:)
+
+        # Ensure the method returns the five most recent comments
+        expect(post.recent_five_comments).to eq([comment5, comment4, comment3, comment2, comment1])
+      end
+    end
   end
 end
