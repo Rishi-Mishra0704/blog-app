@@ -1,2 +1,9 @@
+<h1>Users</h1>
 
-<h1> All users will be displayed</h1>
+<% @users.each do |user| %>
+<a href="/users/<%= user.id%>">
+  <h2><%= user.name %></h2>
+  <p>Posts Counter: <%= user.posts_counter %></p>
+  <hr>
+</a>
+<% end %>

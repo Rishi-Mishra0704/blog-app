@@ -1,1 +1,11 @@
-<h1>A single post will be displayed</h1>
+<h1><%= @post.title %></h1>
+<p>Author: <%= @post.author.name %></p>
+<p>Likes: <%= @post.likes_counter %></p>
+<p>Comments: <%= @post.comments_counter %></p>
+
+<h2>Recent Comments</h2>
+<% @post.recent_five_comments.each do |comment| %>
+  <p><%= comment.text %></p>
+  <p>Author: <%= comment.user.name %></p>
+  <hr>
+<% end %>
