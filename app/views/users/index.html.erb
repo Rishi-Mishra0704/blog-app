@@ -2,6 +2,7 @@
 
 <% @users.each do |user| %>
 <a href="/users/<%= user.id%>">
+<%= image_tag user.photo %>
   <h2><%= user.name %></h2>
   <p>Posts Counter: <%= user.posts_counter %></p>
   <hr>
