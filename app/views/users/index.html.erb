@@ -1,10 +1,15 @@
 <h1>Users</h1>
 
 <% @users.each do |user| %>
-<a href="/users/<%= user.id%>">
-<%= image_tag user.photo %>
-  <h2><%= user.name %></h2>
-  <p>Posts Counter: <%= user.posts_counter %></p>
-  <hr>
-</a>
+  <div class="user-card">
+    <a href="/users/<%= user.id %>" class="user-link">
+      <div class="user-avatar">
+        <%= image_tag user.photo %>
+      </div>
+      <div class="user-details">
+        <h2 class="user-name"><%= user.name %></h2>
+        <p class="posts-counter">Posts Counter: <%= user.posts_counter %></p>
+      </div>
+    </a>
+  </div>
 <% end %>

@@ -1,11 +1,16 @@
 <h1>Posts</h1>
 
 <% @posts.each do |post| %>
-  <a href="/users/<%= post.author.id%>/posts/<%= post.id%>">
-  <h2><%= post.title %></h2>
-  <p>Author: <%= post.author.name %></p>
-  <p>Likes: <%= post.likes_counter %></p>
-  <p>Comments: <%= post.comments_counter %></p>
-  <hr>
-  </a>
+  <div class="post-card">
+    <a href="/users/<%= post.author.id %>/posts/<%= post.id %>" class="post-link">
+      <div class="post-title">
+        <h2><%= post.title %></h2>
+      </div>
+      <div class="post-details">
+        <p class="author">Author: <%= post.author.name %></p>
+        <p class="likes">Likes: <%= post.likes_counter %></p>
+        <p class="comments">Comments: <%= post.comments_counter %></p>
+      </div>
+    </a>
+  </div>
 <% end %>
