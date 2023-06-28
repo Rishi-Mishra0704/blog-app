@@ -1,15 +1,227 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Styles for User Card */
+.user-card {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+.user-avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #333;
+}
+
+.user-details {
+  flex: 1 1 auto;
+  border: 2px solid #333;
+  padding: 10px;
+}
+
+.user-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-name {
+  margin: 0 0 0 10px;
+  font-size: 30px;
+}
+
+.posts-counter {
+  color: #333;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+/* Styles for User Profile */
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.user-profile .left-section img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #333;
+}
+.right-section {
+  border: 2px solid #333;
+  width: 55%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+.center-section {
+  text-align: center;
+}
+
+.user-profile h1,
+.center-section h2 {
+  margin-top: 0;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  border: 2px solid #333;
+  padding: 15px;
+  margin:0 12%;
+}
+.bio h2 {
+  font-size: 30px;
+  text-align: left;
+}
+.bio p {
+  font-size: 20px;
+  text-align: left;
+}
+
+.post{
+  border: 2px solid #333;
+  padding: 15px;
+  margin:10px auto;
+  width: 50%;
+}
+.post h3{
+  font-size: 24px;
+  text-align: left;
+}
+
+.post p{
+  font-size: 20px;
+  text-align: left;
+}
+
+.counter{
+  float: right;
+  margin-top: -10px;
+} 
+
+.button {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #337ab7;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+}
+/* Styles for Posts */
+.post-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-container .user-card {
+  display: flex;
+}
+
+.post-container .user-avatar {
+  margin-right: 10px;
+}
+
+.post-container .user-details {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px; 
+}
+
+.post-card {
+  background-color: #f0f0f0;
+  border: 2px solid #333;
+  padding: 15px;
+}
+
+ .post-link {
+  text-decoration: none;
+  color: #333;
+}
+
+ .post-title {
+  margin-bottom: 10px;
+}
+
+ .post-details p {
+  color: #888;
+}
+ .post-counter {
+  float: right;
+  margin-top: -10px;
+
+}
+.post-comments {
+  margin-bottom: 20px;
+  font-size: 18px;
+  padding: 2px 10px;
+}
+
+.empty-comments {
+  display: none;
+}
+
+.post-comments.with-border {
+  border: 2px solid #333;
+}
+
+
+/* Styles for Single Post */
+.post-details h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.post-details .post-info {
+  text-align: center;
+}
+
+.post-details .post-info p {
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.recent-comments h2 {
+  margin-bottom: 10px;
+}
+
+.comment {
+  margin-bottom: 10px;
+}
+
+.comment-text {
+  font-weight: bold;
+}
+
+.comment-author {
+  color: #888;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
