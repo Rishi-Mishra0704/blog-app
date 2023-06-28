@@ -1,19 +1,21 @@
 <div class="post-details">
-  <h1><%= @post.title %></h1>
-  <div class="post-info">
-    <p class="author">Author: <%= @post.author.name %></p>
-    <p class="likes">Likes: <%= @post.likes_counter %></p>
-    <p class="comments">Comments: <%= @post.comments_counter %></p>
+  <div class="post-card">
+    <div class="post-head">
+      <h2 class="post-title"><%= @post.title %> by <%= @post.author.name %></h2>
+      <div class = "like-count">
+        <span class="comments">Comments: <%= @post.comments_counter %></span>,
+        <span class="likes">Likes: <%= @post.likes_counter %></span>
+      </div>
+    </div>
+    <p class="post-body"><%= @post.text %></p>
   </div>
 </div>
 
+
 <div class="recent-comments">
-  <h2>Recent Comments</h2>
   <% @post.recent_five_comments.each do |comment| %>
     <div class="comment">
-      <p class="comment-text"><%= comment.text %></p>
-      <p class="comment-author">Author: <%= comment.user.name %></p>
+      <p class="comment-text"><%= comment.user.name %> : <%= comment.text %></p>
     </div>
-    <hr>
   <% end %>
 </div>

@@ -89,7 +89,7 @@ a {
   margin: 10px;
   border: 2px solid #333;
   padding: 15px;
-  margin:0 12%;
+  margin: 0 12%;
 }
 .bio h2 {
   font-size: 30px;
@@ -100,26 +100,26 @@ a {
   text-align: left;
 }
 
-.post{
+.post {
   border: 2px solid #333;
   padding: 15px;
-  margin:10px auto;
+  margin: 10px auto;
   width: 50%;
 }
-.post h3{
+.post h3 {
   font-size: 24px;
   text-align: left;
 }
 
-.post p{
+.post p {
   font-size: 20px;
   text-align: left;
 }
 
-.counter{
+.counter {
   float: right;
   margin-top: -10px;
-} 
+}
 
 .button {
   display: block;
@@ -148,7 +148,7 @@ a {
 .post-container .user-details {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .post-card {
@@ -157,22 +157,21 @@ a {
   padding: 15px;
 }
 
- .post-link {
+.post-link {
   text-decoration: none;
   color: #333;
 }
 
- .post-title {
+.post-title {
   margin-bottom: 10px;
 }
 
- .post-details p {
-  color: #888;
+.post-details p {
+  color: #333;
 }
- .post-counter {
+.post-counter {
   float: right;
   margin-top: -10px;
-
 }
 .post-comments {
   margin-bottom: 20px;
@@ -188,20 +187,12 @@ a {
   border: 2px solid #333;
 }
 
-
 /* Styles for Single Post */
-.post-details h1 {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.post-details .post-info {
-  text-align: center;
-}
-
-.post-details .post-info p {
-  color: #888;
-  margin-bottom: 5px;
+.post-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .recent-comments h2 {
@@ -210,15 +201,16 @@ a {
 
 .comment {
   margin-bottom: 10px;
+  border: 2px solid #333;
+  padding: 10px;
 }
 
 .comment-text {
+  font-size: 18px;
   font-weight: bold;
+
 }
 
-.comment-author {
-  color: #888;
-}
 
 hr {
   border: none;
