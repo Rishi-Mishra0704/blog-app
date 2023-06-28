@@ -65,6 +65,7 @@ a {
   border-radius: 50%;
   border: 2px solid #333;
 }
+
 .right-section {
   border: 2px solid #333;
   width: 55%;
@@ -74,6 +75,7 @@ a {
   justify-content: space-between;
   margin-right: 10px;
 }
+
 .center-section {
   text-align: center;
 }
@@ -86,15 +88,16 @@ a {
 .bio {
   display: flex;
   flex-direction: column;
-  margin: 10px;
   border: 2px solid #333;
   padding: 15px;
-  margin: 0 12%;
+  margin: 10px 12%;
 }
+
 .bio h2 {
   font-size: 30px;
   text-align: left;
 }
+
 .bio p {
   font-size: 20px;
   text-align: left;
@@ -106,6 +109,7 @@ a {
   margin: 10px auto;
   width: 50%;
 }
+
 .post h3 {
   font-size: 24px;
   text-align: left;
@@ -131,6 +135,7 @@ a {
   text-decoration: none;
   text-align: center;
 }
+
 /* Styles for Posts */
 .post-container {
   display: flex;
@@ -169,10 +174,12 @@ a {
 .post-details p {
   color: #333;
 }
+
 .post-counter {
   float: right;
   margin-top: -10px;
 }
+
 .post-comments {
   margin-bottom: 20px;
   font-size: 18px;
@@ -208,9 +215,7 @@ a {
 .comment-text {
   font-size: 18px;
   font-weight: bold;
-
 }
-
 
 hr {
   border: none;
