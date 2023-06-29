@@ -222,3 +222,14 @@ hr {
   text-decoration: none;
   color: #fff;
 }
+
+.postBtn {
+  background-color: #337ab7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 20px auto;
+  display: block;
+  width: 150px;
+  text-align: center;
+}
