@@ -1,1 +1,21 @@
-<h1>A single post will be displayed</h1>
+<div class="post-details">
+  <div class="post-card">
+    <div class="post-head">
+      <h2 class="post-title"><%= @post.title %> by <%= @post.author.name %></h2>
+      <div class = "like-count">
+        <span class="comments">Comments: <%= @post.comments_counter %></span>,
+        <span class="likes">Likes: <%= @post.likes_counter %></span>
+      </div>
+    </div>
+    <p class="post-body"><%= @post.text %></p>
+  </div>
+</div>
+
+
+<div class="recent-comments">
+  <% @post.recent_five_comments.each do |comment| %>
+    <div class="comment">
+      <p class="comment-text"><%= comment.user.name %> : <%= comment.text %></p>
+    </div>
+  <% end %>
+</div>

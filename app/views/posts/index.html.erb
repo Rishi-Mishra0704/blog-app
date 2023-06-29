@@ -1,1 +1,41 @@
-<h1>All posts will be displayed</h1>
+<h1>Posts</h1>
+<div class="post-container">
+  <% posts_by_user = @posts.group_by(&:author_id) %>
+  <% posts_by_user.each do |author_id, posts| %>
+    <% user = User.find(author_id) %>
+    <div class="user-card">
+      <div class="user-avatar">
+        <%= image_tag user.photo %>
+      </div>
+      <div class="user-details">
+        <div class="user-info">
+          <h1 class="user-name"><%= user.name %></h1>
+          <p class="posts-counter">Number of posts: <%= user.posts_counter %></p>
+        </div>
+      </div>
+    </div>
+    <% posts.each do |post| %>
+      <% recent_comments = post.recent_five_comments %>
+      <a href="/users/<%= user.id %>/posts/<%= post.id %>" class="post-link">
+        <div class="post-card">
+          <h2 class="post-title"><%= post.title %></h2>
+          <p class="post-details"><%= post.text %></p>
+          <div class="post-counter">
+            <span class="comments">Comments: <%= post.comments_counter %></span>,
+            <span class="likes">Likes: <%= post.likes_counter %></span>
+          </div>
+        </div>
+        <% if recent_comments.any? %>
+          <div class="post-comments with-border">
+            <% recent_comments.each do |comment| %>
+              <p><%= post.author.name %>: <%= comment.text %></p>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="post-comments empty-comments"></div>
+        <% end %>
+      </a>
+    <% end %>
+  <% end %>
+  <p class="button">Pagination</p>
+</div>
