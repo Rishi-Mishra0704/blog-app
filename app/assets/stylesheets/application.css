@@ -30,11 +30,6 @@ a {
   padding: 10px;
 }
 
-.user-link {
-  text-decoration: none;
-  color: #333;
-}
-
 .user-info {
   display: flex;
   justify-content: space-between;
@@ -221,4 +216,20 @@ hr {
   border: none;
   border-top: 1px solid #ccc;
   margin: 10px 0;
+}
+
+.user-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.postBtn {
+  background-color: #337ab7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 20px auto;
+  display: block;
+  width: 150px;
+  text-align: center;
 }
