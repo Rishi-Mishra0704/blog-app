@@ -111,11 +111,17 @@ cd 'project name'
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 \*\*Rishi Mishra\*\*
+## <a> 👤 Abdus Sattar </a>
 
-- GitHub: [Rishi Mishra](https://github.com/Rishi-Mishra0704)
-- Twitter: [Rishi Mishra](https://twitter.com/RishiMi31357764)
-- LinkedIn: [Rishi Mishra](https://www.linkedin.com/in/rishi-mishra-756718257/)
+- GitHub: [AbdusSattar-70](https://github.com/AbdusSattar-70)
+- Twitter: [Abdus Sattar](https://twitter.com/Abdus_Sattar70)
+- LinkedIn: [Abdus Sattar](https://www.linkedin.com/in/abdus-sattar70/)
+
+## <a> 👤 Rishi Mishra </a>
+
+- GitHub: [AbdusSattar-70](https://github.com/Rishi-Mishra0704)
+- Twitter: [Abdus Sattar](https://twitter.com/RishiMi31357764)
+- LinkedIn: [Abdus Sattar](https://www.linkedin.com/in/rrmishra/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

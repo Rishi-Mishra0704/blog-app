@@ -1,19 +1,17 @@
 <h1>Users</h1>
 
 <% @users.each do |user| %>
-<div class="user-card">
-  <div class="user-avatar">
-    <%= image_tag user.photo %>
+  <div class="user-card">
+    <div class="user-avatar">
+      <img src="<%= user.photo %>" alt="User Photo">
+    </div>
+    <div class="user-details">
+      <a href="/users/<%= user.id %>" class="user-link">
+        <div class="user-info">
+          <h2 class="user-name"><%= user.name %></h2>
+          <p class="posts-counter">Number of posts: <%= user.posts_counter %></p>
+        </div>
+      </a>
+    </div>
   </div>
-  <div class="user-details">
-    <a href="/users/<%= user.id %>" class="user-link">
-      <div class="user-info">
-        <h2 class="user-name"><%= user.name %></h2>
-        <p class="posts-counter">Number of posts: <%= user.posts_counter %></p>
-      </div>
-    </a>
-  </div>
-</div>
-
-
 <% end %>

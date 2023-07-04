@@ -17,6 +17,7 @@
         <p class="postBtn"><%= link_to "Create A Post", new_user_post_path, { class: "user-link" }%></p>
     <% posts.each do |post| %>
       <% recent_comments = post.recent_five_comments %>
+      <div class ="test" >
       <a href="/users/<%= user.id %>/posts/<%= post.id %>" class="post-link">
         <div class="post-card">
           <h2 class="post-title"><%= post.title %></h2>
@@ -36,6 +37,7 @@
           <div class="post-comments empty-comments"></div>
         <% end %>
       </a>
+      </div>
     <% end %>
   <% end %>
   <p class="button">Pagination</p>
