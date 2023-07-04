@@ -46,10 +46,10 @@ RSpec.describe 'Post #Index Page', type: :feature do
   end
 
   it 'When I click on a post, it redirects me to that post\'s show page.' do
-    within('.title_div', match: :first) do
-      click_link('See Details')
+    within('.test', match: :first) do
+      click_link @post.title
     end
-    expect(current_path).to eq(user_post_path(@user, @post))
+    expect(current_path).to eq("/users/#{@user.id}/posts/#{@post.id}")
   end
 
 end
