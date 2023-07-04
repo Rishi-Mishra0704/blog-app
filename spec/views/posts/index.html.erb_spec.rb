@@ -51,5 +51,4 @@ RSpec.describe 'Post #Index Page', type: :feature do
     end
     expect(current_path).to eq("/users/#{@user.id}/posts/#{@post.id}")
   end
-
 end
