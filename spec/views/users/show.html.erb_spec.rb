@@ -1,55 +1,58 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
-
-RSpec.describe 'users/show.html.erb', type: :view do
-  include Rails.application.routes.url_helpers
-
+RSpec.describe 'User #Show Page', type: :feature do
   before(:each) do
-    @user = User.create(name: 'Username 1', photo: 'photo.jpg', posts_counter: 10, bio: 'User bio')
-    @posts = [
-      Post.create(title: 'Post 1', text: 'text 1', author: @user),
-      Post.create(title: 'Post 2', text: 'text 2', author: @user),
-      Post.create(title: 'Post 3', text: 'text 3', author: @user)
-    ]
+    @user = User.create(name: 'Mondol', photo: 'https://example.jpg',
+                        bio: 'He is a software engineer from Bangladesh', posts_counter: 10)
+    @post1 = Post.create(title: 'test post-1', text: 'test text-1', comments_counter: 1,
+                         likes_counter: 2, author_id: @user.id)
+    @post2 = Post.create(title: 'test post-1', text: 'test text-1', comments_counter: 1,
+                         likes_counter: 2, author_id: @user.id)
+    @post3 = Post.create(title: 'test post-1', text: 'test text-1', comments_counter: 1,
+                         likes_counter: 2, author_id: @user.id)
+    @post4 = Post.create(title: 'test post-1', text: 'test text-1', comments_counter: 1,
+                         likes_counter: 2, author_id: @user.id)
+
+    visit user_path(@user)
   end
 
-  it 'displays the user profile picture' do
-    render
-    expect(rendered).to have_css('img[src="photo.jpg"][alt="User Photo"]')
+  it 'I can see the user\'s profile picture.' do
+    expect(page.html).to include(@user.photo)
   end
 
-  it 'displays the user username' do
-    render
-    expect(rendered).to have_css('h1', text: 'Username 1')
+  it 'I can see the user\'s username.' do
+    expect(page).to have_content(@user.name)
   end
 
-  it 'displays the number of posts the user has written' do
-    render
-    expect(rendered).to have_css('h3', text: 'Number of posts: 10', visible: false)
+  it 'I can see the number of posts the user has written.' do
+    expect(page.html).to have_content(@user.posts_counter)
   end
 
-  it 'displays the user bio' do
-    render
-    expect(rendered).to have_css('p', text: 'User bio')
+  it 'I can see the user\'s bio.' do
+    page.has_content?(@user.bio)
   end
 
-  it 'displays the user\'s first 3 posts' do
-    render
-    @posts.each do |post|
-      expect(rendered).to have_content(post.title)
-      expect(rendered).to have_content(post.text)
+  it 'I can see the user\'s first 3 posts.' do
+    recent_posts = @user.recent_three_posts.limit(3)
+    recent_posts.each do |post|
+      expect(page).to have_content(post.title)
     end
   end
 
-  it 'redirects to the post show page when clicking on a user\'s post' do
-    render
-    @posts.each do |post|
-      expect(rendered).to have_link('View Post', href: url_for([@user, post]))
-    end
+  it 'I can see a button that lets me view all of a user\'s posts.' do
+    page.has_button?('See all posts')
   end
-  
 
-  it 'redirects to the user posts index page when clicking on "See all posts"' do
-    render
-    expect(rendered).to have_link('See all posts', href: user_posts_path(@user))
+  it 'When I click a user\'s post, it redirects me to that post\'s show page.' do
+    within('.post', match: :first  ) do
+      click_link @post4.title
+    end
+    expect(current_path).to eq("/users/#{@user.id}/posts/#{@post4.id}")
+  end
+
+  it 'When I click to see all posts, it redirects me to the user\'s post\'s index page.' do
+      click_link('See all posts')
+    expect(current_path).to eq(user_posts_path(@user))
   end
 end

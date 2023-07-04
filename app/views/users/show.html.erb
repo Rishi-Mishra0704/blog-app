@@ -15,16 +15,16 @@
   </div>
 
   <% @user.recent_three_posts.each do |post| %>
-    <a href="<%= user_post_path(@user, post) %>">
       <div class="post">
+    <a href="<%= user_post_path(@user, post) %>">
         <h3><%= post.title %></h3>
         <p><%= post.text %></p>
         <div class="counter">
           <span class="comments">Comments: <%= post.comments_counter %>, </span>
           <span class="likes">Likes: <%= post.likes_counter %></span>
         </div>
-      </div>
     </a>
+      </div>
   <% end %>
 
   <a href="<%= user_posts_path(@user) %>" class="button">See all posts</a>
