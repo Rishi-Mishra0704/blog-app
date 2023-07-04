@@ -25,4 +25,16 @@ RSpec.describe 'Post #Index Page', type: :feature do
     page.has_content?(@post.title)
   end
 
+  it 'I can see some of the post\'s body.' do
+    page.has_content?(@post.text)
+  end
+
+  it 'I can see the first comments on a post.' do
+    page.has_content?(@post.comments)
+  end
+
+  it 'I can see how many comments a post has.' do
+    page.has_content?(@post.comments_counter)
+  end
+
 end
