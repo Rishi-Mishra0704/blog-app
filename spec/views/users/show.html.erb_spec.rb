@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 RSpec.describe 'User #Show Page', type: :feature do
   before(:each) do
@@ -45,14 +43,14 @@ RSpec.describe 'User #Show Page', type: :feature do
   end
 
   it 'When I click a user\'s post, it redirects me to that post\'s show page.' do
-    within('.post', match: :first  ) do
+    within('.post', match: :first) do
       click_link @post4.title
     end
     expect(current_path).to eq("/users/#{@user.id}/posts/#{@post4.id}")
   end
 
   it 'When I click to see all posts, it redirects me to the user\'s post\'s index page.' do
-      click_link('See all posts')
+    click_link('See all posts')
     expect(current_path).to eq(user_posts_path(@user))
   end
 end

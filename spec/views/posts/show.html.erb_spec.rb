@@ -5,7 +5,7 @@ RSpec.describe 'Post #Show Page', type: :feature do
                         bio: 'He is a software engineer from Bangladesh', posts_counter: 10)
     @post = Post.create(author: @user, title: 'test post', text: 'This is my first post', likes_counter: 15,
                         comments_counter: 10)
-    @comment = Comment.create(post_id: @post.id, author_id: @user.id, text: 'test comment')
+    @comment = Comment.create(post_id: @post.id, user_id: @user.id, text: 'test comment')
     visit user_post_path(@user, @post)
   end
 
@@ -31,11 +31,10 @@ RSpec.describe 'Post #Show Page', type: :feature do
   end
 
   it 'I can see the username of each commentor.' do
-    page.has_content?(@comment.author.name)
+    page.has_content?(@comment.user.name)
   end
 
   it 'I can see the comment each commentor left.' do
-    page.has_content?(@comment.author.comments)
+    page.has_content?(@comment.user.comments)
   end
-
 end
