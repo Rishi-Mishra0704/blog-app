@@ -8,4 +8,15 @@ RSpec.describe 'Post #Show Page', type: :feature do
     @comment = Comment.create(post_id: @post.id, author_id: @user.id, text: 'test comment')
     visit user_post_path(@user, @post)
   end
+
+
+  it 'I can see the post\'s title.' do
+    page.has_content?(@post.title)
+  end
+
+  it 'I can see who wrote the post.' do
+    page.has_content?(@post.author)
+  end
+
+
 end
