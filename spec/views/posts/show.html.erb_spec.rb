@@ -9,7 +9,6 @@ RSpec.describe 'Post #Show Page', type: :feature do
     visit user_post_path(@user, @post)
   end
 
-
   it 'I can see the post\'s title.' do
     page.has_content?(@post.title)
   end
