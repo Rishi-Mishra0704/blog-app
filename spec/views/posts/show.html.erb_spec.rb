@@ -26,4 +26,16 @@ RSpec.describe 'Post #Show Page', type: :feature do
     page.has_content?(@post.likes_counter)
   end
 
+  it 'I can see the post body.' do
+    page.has_content?(@post.text)
+  end
+
+  it 'I can see the username of each commentor.' do
+    page.has_content?(@comment.author.name)
+  end
+
+  it 'I can see the comment each commentor left.' do
+    page.has_content?(@comment.author.comments)
+  end
+
 end
