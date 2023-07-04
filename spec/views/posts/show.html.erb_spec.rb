@@ -18,5 +18,12 @@ RSpec.describe 'Post #Show Page', type: :feature do
     page.has_content?(@post.author)
   end
 
+  it 'I can see how many comments it has.' do
+    page.has_content?(@post.comments_counter)
+  end
+
+  it 'I can see how many likes it has.' do
+    page.has_content?(@post.likes_counter)
+  end
 
 end
