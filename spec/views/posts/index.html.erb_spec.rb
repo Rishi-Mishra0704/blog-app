@@ -8,4 +8,21 @@ RSpec.describe 'Post #Index Page', type: :feature do
     @comment = Comment.create(post_id: @post.id, user_id: @user.id, text: 'test comment')
     visit user_posts_path(@user)
   end
+
+  it 'I can see the user\'s profile picture.' do
+    page.has_content?(@user.photo)
+  end
+
+  it 'I can see the user\'s username.' do
+    page.has_content?(@user.name)
+  end
+
+  it 'I can see the number of posts the user has written.' do
+    page.has_content?(@user.posts_counter)
+  end
+
+  it 'I can see a post\'s title.' do
+    page.has_content?(@post.title)
+  end
+
 end
