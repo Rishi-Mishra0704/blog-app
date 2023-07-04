@@ -37,4 +37,19 @@ RSpec.describe 'Post #Index Page', type: :feature do
     page.has_content?(@post.comments_counter)
   end
 
+  it 'I can see how many likes a post has.' do
+    page.has_content?(@post.likes_counter)
+  end
+
+  it 'I can see a section for pagination if there are more posts than fit on the view.' do
+    page.has_content?('Next')
+  end
+
+  it 'When I click on a post, it redirects me to that post\'s show page.' do
+    within('.title_div', match: :first) do
+      click_link('See Details')
+    end
+    expect(current_path).to eq(user_post_path(@user, @post))
+  end
+
 end
