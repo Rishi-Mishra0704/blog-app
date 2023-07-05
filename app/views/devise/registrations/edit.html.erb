@@ -3,10 +3,19 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-
-    <div class="field">
+  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bio %><br />
+    <%= f.text_field :bio, autofocus: true, autocomplete: "bio" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.text_field :photo, autofocus: true, autocomplete: "photo" %>
   </div>
 
   <div class="field">

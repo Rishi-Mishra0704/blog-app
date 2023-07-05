@@ -235,8 +235,21 @@ hr {
   text-align: center;
 }
 
+.registration_page {
+  border: 1px solid black;
+  background-color: rgb(187, 245, 226);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+}
+
 .field {
-  margin: 20px;
-  background-color: #337ab7;
-  color: #f867ea;
+  font-size: 24px;
+  margin-top: 5px;
+}
+
+input{
+  margin: 10px 0;
+  font-size: 20px;
 }
