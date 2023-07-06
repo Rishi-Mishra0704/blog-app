@@ -23,8 +23,8 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-    # Redirect after successful sign-in
-    def after_sign_in_path_for(resource)
-      users_path
-    end
-ends
+  # Redirect after successful sign-in
+  def after_sign_in_path_for(_resource)
+    users_path
+  end
+end
